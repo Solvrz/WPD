@@ -1,0 +1,1 @@
+cd Source\ Code/wpd/ && flutter build apk && mv build/app/outputs/flutter-apk/app-release.apk ../.. && cd ../.. && mv app-release.apk "WPD.apk"
