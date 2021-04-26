@@ -1,2 +1,2 @@
 # WPD
-A project for Water Purification &amp; Segrigation.
+- A Project for Water Purification &amp; Segregation.
