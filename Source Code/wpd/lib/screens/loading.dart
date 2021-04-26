@@ -60,10 +60,12 @@ class _LoadingPageState extends State<LoadingPage>
                           Navigator.pushReplacementNamed(context, HomeRoute);
                         });
                     }).catchError(
-                      (_) => Timer.periodic(
-                        Duration(seconds: 1),
-                        (timer) => attemptConnect(timer),
-                      ),
+                      (_) {
+                        Timer.periodic(
+                          Duration(seconds: 1),
+                          (timer) => attemptConnect(timer),
+                        );
+                      },
                     );
                   },
                   child: Text("Retry!"),

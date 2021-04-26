@@ -10,13 +10,11 @@ class HomePage extends StatelessWidget {
     SizeConfig().init(context);
 
     return WillPopScope(
-      onWillPop: () {
-        return showDialog(
+      onWillPop: () async {
+        showDialog(
           context: context,
           builder: (_) => AlertDialog(
-            title: Center(
-              child: Text("Quitting"),
-            ),
+            title: Center(child: Text("Quitting")),
             content: Text("Are you sure you want to quit the app?"),
             actions: [
               MaterialButton(
@@ -27,15 +25,15 @@ class HomePage extends StatelessWidget {
                 child: Text("Yes"),
               ),
               MaterialButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
+                onPressed: () => Navigator.of(context).pop(),
                 child: Text("No"),
               )
             ],
           ),
-        ) as Future<bool>;
-      } as Future<bool> Function()?,
+        );
+
+        return false;
+      },
       child: Scaffold(
         appBar: AppBar(
           title: Text("WPM SURE"),
