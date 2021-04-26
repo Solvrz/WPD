@@ -1,2 +1,2 @@
-# WPD-Hardware
-- Hardware for WPD
+# WPD-App
+- App for WPD
