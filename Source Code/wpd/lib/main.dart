@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:wpd_app/screens/about.dart';
-import 'package:wpd_app/screens/loading.dart';
-import 'package:wpd_app/screens/home.dart';
-import 'package:wpd_app/screens/history.dart';
-import 'package:wpd_app/screens/result.dart';
+import 'package:wpd/screens/about.dart';
+import 'package:wpd/screens/history.dart';
+import 'package:wpd/screens/home.dart';
+import 'package:wpd/screens/loading.dart';
+import 'package:wpd/screens/result.dart';
 
 void main() => runApp(App());
 
@@ -13,11 +13,11 @@ const HistoryRoute = "/history";
 const AboutRoute = "/about";
 
 class SizeConfig {
-  static MediaQueryData _mediaQueryData;
-  static double screenWidth;
-  static double screenHeight;
-  static double blockSizeHorizontal;
-  static double blockSizeVertical;
+  static late MediaQueryData _mediaQueryData;
+  static late double screenWidth;
+  static late double screenHeight;
+  static late double blockSizeHorizontal;
+  static late double blockSizeVertical;
 
   void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
@@ -40,16 +40,17 @@ class App extends StatelessWidget {
 
   RouteFactory _routes() {
     return (settings) {
-      Map<String, dynamic> arguments = settings.arguments;
+      Map<String, dynamic>? arguments =
+          settings.arguments as Map<String, dynamic>?;
       Widget screen;
 
-      switch(settings.name) {
+      switch (settings.name) {
         case HomeRoute:
           screen = HomePage();
           break;
 
         case ResultRoute:
-          screen = ResultPage(arguments["doc"]);
+          screen = ResultPage(arguments!["doc"]);
           break;
 
         case HistoryRoute:
@@ -68,4 +69,3 @@ class App extends StatelessWidget {
     };
   }
 }
-

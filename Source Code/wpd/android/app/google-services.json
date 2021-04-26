@@ -8,38 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:73256919831:android:1f3db9390d8f3d46444d52",
-        "android_client_info": {
-          "package_name": "com.aditya.flutterfirestore"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "73256919831-22tdvs9t6oktpmp53tsv1f3ut6nk0sbf.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA7YsU0QPLiLDRa5eu7iPeXLWJH5ECK8KI"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "73256919831-22tdvs9t6oktpmp53tsv1f3ut6nk0sbf.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:73256919831:android:536171634aa2d9a5444d52",
         "android_client_info": {
-          "package_name": "com.aditya.wpdapp"
+          "package_name": "com.solvrz.wpd"
         }
       },
       "oauth_client": [

@@ -1,7 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:wpd_app/main.dart';
-import 'dart:io';
+import 'package:wpd/main.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -13,26 +14,28 @@ class HomePage extends StatelessWidget {
         return showDialog(
           context: context,
           builder: (_) => AlertDialog(
-            title: Center(child: Text("Quitting"),),
+            title: Center(
+              child: Text("Quitting"),
+            ),
             content: Text("Are you sure you want to quit the app?"),
-            actions: <Widget>[
-              FlatButton(
+            actions: [
+              MaterialButton(
                 onPressed: () {
                   SystemNavigator.pop();
                   exit(0);
                 },
-                child: Text("Yes")
+                child: Text("Yes"),
               ),
-              FlatButton(
+              MaterialButton(
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
                 child: Text("No"),
               )
             ],
-          )
-        );
-      },
+          ),
+        ) as Future<bool>;
+      } as Future<bool> Function()?,
       child: Scaffold(
         appBar: AppBar(
           title: Text("WPM SURE"),
@@ -40,15 +43,15 @@ class HomePage extends StatelessWidget {
           elevation: 2,
         ),
         body: Stack(
-          children: <Widget>[
+          children: [
             AspectRatio(
               aspectRatio: 3 / 5,
-              child: Image.asset("WPMBackIcon2.png")
+              child: Image.asset("assets/images/WPMBackIcon2.png"),
             ),
             Container(
               padding: EdgeInsets.fromLTRB(18, 18, 18, 0),
               child: Column(
-                children: <Widget>[
+                children: [
                   Center(
                     child: Text(
                       "Welcome to the Home Page!",
@@ -58,23 +61,18 @@ class HomePage extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                       textAlign: TextAlign.center,
-                    )
+                    ),
                   ),
-                  Divider(
-                    height: 40,
-                    thickness: 1,
-                    color: Colors.grey[900]
-                  ),
+                  Divider(height: 40, thickness: 1, color: Colors.grey[900]),
                   Expanded(
                     child: Container(
                       padding: EdgeInsets.all(8),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          FlatButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, HistoryRoute);
-                            },
+                        children: [
+                          MaterialButton(
+                            onPressed: () =>
+                                Navigator.pushNamed(context, HistoryRoute),
                             child: SizedBox(
                               height: 50,
                               width: 62.5,
@@ -90,12 +88,10 @@ class HomePage extends StatelessWidget {
                               ),
                             ),
                             color: Colors.deepOrange[500],
-
                           ),
-                          FlatButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, AboutRoute);
-                            },
+                          MaterialButton(
+                            onPressed: () =>
+                                Navigator.pushNamed(context, AboutRoute),
                             child: SizedBox(
                               height: 50,
                               width: 70,
@@ -113,27 +109,26 @@ class HomePage extends StatelessWidget {
                             color: Colors.deepOrange[500],
                           )
                         ],
-                      )
+                      ),
                     ),
                   ),
                   AspectRatio(
-                    aspectRatio: 4/2,
-                    child: SizedBox(
-                    ),
+                    aspectRatio: 4 / 2,
+                    child: SizedBox(),
                   ),
                   Expanded(
                     child: Container(
                       alignment: Alignment.bottomCenter,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
+                        children: [
                           FittedBox(
                             fit: BoxFit.fitWidth,
                             child: Text(
                               "HANDCRAFTED BY MEHRRAJ, ADITYA, LOVISH",
                               style: TextStyle(
                                 fontFamily: "VT323",
-                                fontSize: 20
+                                fontSize: 20,
                               ),
                             ),
                           ),
@@ -143,8 +138,8 @@ class HomePage extends StatelessWidget {
                             child: Text(
                               "TAILORED BY R.P. SINGH",
                               style: TextStyle(
-                                  fontFamily: "VT323",
-                                  fontSize: 20
+                                fontFamily: "VT323",
+                                fontSize: 20,
                               ),
                             ),
                           ),
@@ -154,22 +149,21 @@ class HomePage extends StatelessWidget {
                             child: Text(
                               "STITCHED @ OPBMS, PUNJAB",
                               style: TextStyle(
-                                  fontFamily: "VT323",
-                                  fontSize: 20
+                                fontFamily: "VT323",
+                                fontSize: 20,
                               ),
                             ),
                           )
                         ],
-                      )
+                      ),
                     ),
                   )
                 ],
-              )
+              ),
             ),
-          ]
+          ],
         ),
       ),
     );
   }
 }
-

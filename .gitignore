@@ -43,7 +43,7 @@ key.properties
 
 
 # Web
-Source Code/suneel_printer/lib/generated_plugin_registrant.dart
+generated_plugin_registrant.dart
 
 # Symbolication
 app.*.symbols

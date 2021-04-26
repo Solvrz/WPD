@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wpd_app/main.dart';
+import 'package:wpd/main.dart';
 
 class ResultPage extends StatelessWidget {
   final doc;
@@ -19,31 +19,32 @@ class ResultPage extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.all(20),
         child: Column(
-          children: <Widget>[
+          children: [
             // Date & Time from the doc
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      "${doc['date']}  ${doc['time']}",
-                      style: TextStyle(
-                        color: Colors.grey[600],
-                        fontSize: 17,
-                        fontWeight: FontWeight.bold,
-                      )
-                    )
+            Row(children: [
+              Expanded(
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "${doc['date']}  ${doc['time']}",
+                    style: TextStyle(
+                      color: Colors.grey[600],
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                Expanded(
-                  child: Container(
-                    alignment: Alignment.centerRight,
-                    child: SizedBox(height: 50, child: Image.asset("WPMBrandLogo.png"))
+              ),
+              Expanded(
+                child: Container(
+                  alignment: Alignment.centerRight,
+                  child: SizedBox(
+                    height: 50,
+                    child: Image.asset("assets/images/WPMBrandLogo.png"),
                   ),
-                )
-              ]
-            ),
+                ),
+              )
+            ]),
             // Description from the doc
             AspectRatio(
               aspectRatio: 7 / 5,
@@ -52,21 +53,22 @@ class ResultPage extends StatelessWidget {
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
                   color: Colors.cyan[400],
-                  borderRadius: BorderRadius.circular(10)
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 constraints: BoxConstraints(
-                  minHeight: 150,
-                  minWidth: 200,
-                  maxHeight: 300,
-                  maxWidth: 400
-                ),
-                child: Center(child: Text(
-                  doc["description"],
-                  style: TextStyle(
-                    fontSize: 18,
+                    minHeight: 150,
+                    minWidth: 200,
+                    maxHeight: 300,
+                    maxWidth: 400),
+                child: Center(
+                  child: Text(
+                    doc["description"],
+                    style: TextStyle(
+                      fontSize: 18,
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ))
+                ),
               ),
             ),
             Divider(
@@ -79,16 +81,36 @@ class ResultPage extends StatelessWidget {
             Wrap(
               spacing: 10,
               runSpacing: 16,
-              children: <Widget>[
-                ResultBox(doc, "pH", "logo1.png", Colors.amberAccent[200]),
-                ResultBox(doc, "Temp", "logo2.png", Colors.deepOrange[400]),
-                ResultBox(doc, "Cond", "logo4.png", Colors.lightBlue[200]),
-                ResultBox(doc, "ppm", "logo3.png", Colors.lightGreen[300]),
+              children: [
+                ResultBox(
+                  doc,
+                  "pH",
+                  "assets/images/logo1.png",
+                  Colors.amberAccent[200],
+                ),
+                ResultBox(
+                  doc,
+                  "Temp",
+                  "assets/images/logo2.png",
+                  Colors.deepOrange[400],
+                ),
+                ResultBox(
+                  doc,
+                  "Cond",
+                  "assets/images/logo4.png",
+                  Colors.lightBlue[200],
+                ),
+                ResultBox(
+                  doc,
+                  "ppm",
+                  "assets/images/logo3.png",
+                  Colors.lightGreen[300],
+                ),
               ],
             )
           ],
         ),
-      )
+      ),
     );
   }
 }
@@ -106,61 +128,46 @@ class ResultBox extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(8),
       constraints: BoxConstraints.expand(
-        width: SizeConfig.blockSizeHorizontal * 40, //140,
-        height: SizeConfig.blockSizeVertical * 15 //100
-      ),
+          width: SizeConfig.blockSizeHorizontal * 40, //140,
+          height: SizeConfig.blockSizeVertical * 15 //100
+          ),
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(5)
+        borderRadius: BorderRadius.circular(5),
       ),
       child: Column(
-        children: <Widget>[
+        children: [
           Row(
-            children: <Widget>[
+            children: [
               Expanded(
                 child: Container(
                   alignment: Alignment.centerLeft,
-                  constraints: BoxConstraints.expand(
-                    height: 20,
-                    width: 20
-                  ),
-                  child: Image.asset(logoPath)
-                )
+                  constraints: BoxConstraints.expand(height: 20, width: 20),
+                  child: Image.asset(logoPath),
+                ),
               ),
               Expanded(
                 child: Container(
                   alignment: Alignment.centerRight,
                   child: Text(
                     label,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold
-                    ),
-                  )
-                )
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                ),
               )
             ],
           ),
           Padding(
             padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical * 2),
-            child: Center(child: Text(
-              () {
-                var data = doc[label];
-                if (data != null) {
-                  return data;
-                } else {
-                  return "Loading";
-                }
-              }(),
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold
-              )
-            ),),
+            child: Center(
+              child: Text(
+                doc[label] != null ? doc[label] : "Loading",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
           )
         ],
       ),
     );
   }
 }
-
