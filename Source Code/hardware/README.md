@@ -1,2 +1,1 @@
-# WPD-Hardware
-- Hardware for WPD
+# Hardware

@@ -53,4 +53,5 @@ app.*.map.json
 
 # Exceptions
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
-
+firebase.json
+google-services.json

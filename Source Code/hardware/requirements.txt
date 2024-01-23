@@ -1,0 +1,4 @@
+pyfirmata
+sci-kitlearn
+RPi
+numpy
