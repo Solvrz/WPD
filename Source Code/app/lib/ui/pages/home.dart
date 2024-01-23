@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-import 'result.dart';
+import './result.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});

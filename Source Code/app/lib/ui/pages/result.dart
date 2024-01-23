@@ -18,7 +18,6 @@ class ResultPage extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            // Date & Time from the doc
             Row(
               children: [
                 Expanded(
